@@ -55,7 +55,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.16862745100000001" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                         <color key="value" red="0.16862745100000001" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
