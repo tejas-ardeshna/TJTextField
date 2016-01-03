@@ -11,6 +11,6 @@ Version: 1.0
 - Custom placeholder color
 - You can change the design of button within your Storyboard or XIB.
 
-![alt text](https://github.com/tejas-ardeshna/TJTextField/blob/master/underLineText.gif)
+![alt text](https://raw.githubusercontent.com/tejas-ardeshna/TJTextField/master/underLineText%20.gif)
 
-![alt text](https://github.com/tejas-ardeshna/TJTextField/blob/master/Screen%20Shot%202015-12-31%20at%207.27.58%20pm.png)
+![alt text](https://raw.githubusercontent.com/tejas-ardeshna/TJTextField/master/Screen%20Shot.png)
