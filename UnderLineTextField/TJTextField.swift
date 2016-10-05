@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable class TJTextField: UITextField {
     
-    private var ImgIcon: UIImageView?
+    fileprivate var ImgIcon: UIImageView?
     
     @IBInspectable var errorEntry: Bool = false {
         didSet {
@@ -22,7 +22,7 @@ import UIKit
             self.setNeedsDisplay()
         }
     }
-    @IBInspectable var lineColor: UIColor = UIColor.blackColor() {
+    @IBInspectable var lineColor: UIColor = UIColor.black {
         didSet {
             self.setNeedsDisplay()
         }
@@ -32,7 +32,7 @@ import UIKit
             self.setNeedsDisplay()
         }
     }
-    @IBInspectable var errorColor: UIColor = UIColor.redColor() {
+    @IBInspectable var errorColor: UIColor = UIColor.red {
         didSet {
             self.setNeedsDisplay()
         }
@@ -48,14 +48,14 @@ import UIKit
             self.setNeedsDisplay()
         }
     }
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     
-    private func newBounds(bounds: CGRect) -> CGRect {
+    fileprivate func newBounds(_ bounds: CGRect) -> CGRect {
         
         var newBounds = bounds
         newBounds.origin.x += CGFloat(leftTextPedding) + CGFloat(imageWidth)
@@ -70,14 +70,14 @@ import UIKit
         if (txtImage != nil)
         {
             let imgView = UIImageView(image: txtImage)
-            imgView.frame = CGRectMake(0, 0, CGFloat(imageWidth), self.frame.height)
-            imgView.contentMode = .Center
-            self.leftViewMode = UITextFieldViewMode.Always
+            imgView.frame = CGRect(x: 0, y: 0, width: CGFloat(imageWidth), height: self.frame.height)
+            imgView.contentMode = .center
+            self.leftViewMode = UITextFieldViewMode.always
             self.leftView = imgView
         }
     }
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         let height = self.bounds.height
         
@@ -86,21 +86,21 @@ import UIKit
         
         // set the line color and width
         if errorEntry {
-            CGContextSetStrokeColorWithColor(context, errorColor.CGColor)
-            CGContextSetLineWidth(context, 1.5)
+            context?.setStrokeColor(errorColor.cgColor)
+            context?.setLineWidth(1.5)
         } else {
-            CGContextSetStrokeColorWithColor(context, lineColor.CGColor)
-            CGContextSetLineWidth(context, 0.5)
+            context?.setStrokeColor(lineColor.cgColor)
+            context?.setLineWidth(0.5)
         }
         
         // start a new Path
-        CGContextBeginPath(context)
+        context?.beginPath()
         
-        CGContextMoveToPoint(context!, self.bounds.origin.x, height - 0.5)
-        CGContextAddLineToPoint(context!, self.bounds.size.width, height - 0.5)
+        context!.move(to: CGPoint(x: self.bounds.origin.x, y: height - 0.5))
+        context!.addLine(to: CGPoint(x: self.bounds.size.width, y: height - 0.5))
         // close and stroke (draw) it
-        CGContextClosePath(context)
-        CGContextStrokePath(context)
+        context?.closePath()
+        context?.strokePath()
         
         //Setting custom placeholder color
         if let strPlaceHolder: String = self.placeholder
@@ -109,8 +109,9 @@ import UIKit
                 attributes:[NSForegroundColorAttributeName:placeHolerColor])
         }
     }
-    override func leftViewRectForBounds(bounds: CGRect) -> CGRect
+    override func leftViewRect(forBounds bounds: CGRect) -> CGRect
     {
-        return CGRectMake(0, 0, CGFloat(imageWidth), self.frame.height)
+        return CGRect(x: 0, y: 0, width: CGFloat(imageWidth), height: self.frame.height)
     }
 }
+
