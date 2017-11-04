@@ -106,7 +106,7 @@ import UIKit
         if let strPlaceHolder: String = self.placeholder
         {
             self.attributedPlaceholder = NSAttributedString(string:strPlaceHolder,
-                attributes:[NSForegroundColorAttributeName:placeHolerColor])
+                                                            attributes:[NSAttributedStringKey.foregroundColor:placeHolerColor])
         }
     }
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect
