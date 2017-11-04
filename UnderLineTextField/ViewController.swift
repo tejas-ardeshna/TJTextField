@@ -13,12 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet var txtEmail: TJTextField!
     @IBOutlet var txtPassword: TJTextField!
     
-    
-    @IBAction func btnLoginClicked(sender: AnyObject)
-    {
-        
+    @IBAction func btnLoginClicked(_ sender: Any) {
         txtEmail.errorEntry = true
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
